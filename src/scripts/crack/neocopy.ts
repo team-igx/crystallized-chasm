@@ -193,7 +193,7 @@ async function publishStory(id: ExtractedCharacterInfo, isAdult: boolean, newVis
       originData.value.asWritable().purify().modify((data) => {
         data.visibility = newVisibility;
       }),
-      true,
+      false,
       isAdult,
     );
     if (!result.ok) {
