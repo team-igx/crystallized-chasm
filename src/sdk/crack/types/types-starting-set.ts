@@ -50,7 +50,7 @@ export class CrackStartingSet {
 
   uglify(includeId: boolean): any {
     return {
-      setId: includeId ? this.setId : undefined,
+      baseSetId: includeId ? this.setId : undefined,
       name: this.name,
       initialMessages: this.initialMessages,
       situationPrompt: this.situationPrompt,

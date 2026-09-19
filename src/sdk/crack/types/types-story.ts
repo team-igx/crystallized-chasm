@@ -12,6 +12,7 @@ import { CrackIdPair } from "./types-id-set";
 import { CrackImageMatrix } from "./types-image-matrix";
 import { CrackKeywordBook } from "./types-keyword-book";
 import { CrackPromptTemplate } from "./types-prompt-template";
+import { CrackShortcutCommand } from "./types-shortcut-command";
 import { CrackSituationImage } from "./types-situation-image";
 import { CrackStartingSet } from "./types-starting-set";
 
@@ -39,6 +40,7 @@ export class WritableStoryInfo {
     public visibility: CrackVisibility,
     public recommendedOutput: Undeclarable<CrackCreatorRecommendedOutput>,
     public imageVersion: string,
+    public shortcutCommands: CrackShortcutCommand[]
   ) {}
 
   purify() : WritableStoryInfo {
@@ -92,6 +94,7 @@ export class WritableStoryInfo {
       isAdult: isAdult === null ? undefined : isAdult,
       creatorRecommendedMaxOutput: this.recommendedOutput?.uglify(),
       situationImageVersion: this.imageVersion,
+      shortcutCommands: this.shortcutCommands.map(it => it.uglify(includeId))
     });
   }
 
@@ -180,6 +183,8 @@ export class ReadonlyDetailedStoryInfo {
     /** 시작 설정 목록 */
     public readonly startingSets: CrackStartingSet[],
 
+    public readonly shortcutCommands: CrackShortcutCommand[],
+
     /** 크랙 오리지널 정보 */
     public readonly original: Nullable<CrackOriginalState>,
 
@@ -244,6 +249,7 @@ export class ReadonlyDetailedStoryInfo {
       CrackVisibility.of(this.visibility),
       this.recommendOutput,
       this.imageVersion,
+      this.shortcutCommands
     );
   }
 
@@ -283,6 +289,7 @@ export class ReadonlyDetailedStoryInfo {
       MissingComponentError.ensureString("Crack Story Deserialization", "customPrompt", data, false) ?? "",
       MissingComponentError.ensureArray<any>("Crack Story Deserialization", "chatExamples", data).map(it => CrackChatExample.from(it)),
       MissingComponentError.ensureArray<any>("Crack Story Deserialization", "startingSets", data).map((it) => CrackStartingSet.from(it)),
+      MissingComponentError.ensureArray<any>("Crack Story Deserialization", "shortcutCommands", data).map((it) => CrackShortcutCommand.from(it)),
       CrackOriginalState.from(data["original"]),
       CrackOnlyState.from(data["onlyContent"]),
       MissingComponentError.ensureBool("Crack Story Deserialization", "isCommentBlocked", data),
