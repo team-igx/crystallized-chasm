@@ -56,7 +56,9 @@ async function edit(id: string, data: WritableStoryInfo, includeSetId: boolean):
  * @returns 성공 여부
  */
 async function create(data: WritableStoryInfo, includeSetId: boolean, isAdult?: Nullable<boolean>): FutureResult<boolean> {
-  const fetched = await CrackNetworkApi.authFetch("POST", `https://crack-api.wrtn.ai/crack-api/stories/v2`, data.stringify(includeSetId, null, isAdult));
+  const newId = await pullNewId();
+  if (!newId.ok) return newId;
+  const fetched = await CrackNetworkApi.authFetch("POST", `https://crack-api.wrtn.ai/crack-api/stories/v2`, data.stringify(includeSetId, newId.value, isAdult));
   if (!fetched.ok) return fetched;
   return success(true);
 }
