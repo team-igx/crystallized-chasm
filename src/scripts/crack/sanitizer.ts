@@ -12,7 +12,7 @@ import SCRIPT_STYLE from "./css/sanitizer.scss?inline";
 
 export const scriptMeta = ScriptMetaUtil.construct("crack", "sanitizer.user.js", undefined, (meta) => {
   meta.name = "Chasm Crystallized Sanitizer (결정화 캐즘 손소독제)";
-  meta.version = "CRCK-SANI-v2.1.0p" satisfies CRACK_VERSION_RULE;
+  meta.version = "CRCK-SANI-v2.1.1p" satisfies CRACK_VERSION_RULE;
   meta.author = "milkyway0308";
   meta.description = "필요 없는 광고 배너 제거. 손도 아주 깔끔!";
 });
@@ -55,14 +55,27 @@ function monitor() {
   }
 }
 
-function hrefMonitor() {
-  if (settings.config.removeAutoPurchaseBanner && CrackSdk.path().isCrackerPath()) {
+function hrefMonitor(newUrl: Location | URL, attachObserver: boolean): boolean {
+  if (settings.config.removeAutoPurchaseBanner && CrackSdk.path().isCrackerPath(undefined, newUrl)) {
     const selected = NodeLocator.getAll<HTMLImageElement>('img[src="https://cdn-image.static.wrtn.ai/crack/cracker-page-ticket.svg"]');
-    if (selected.length > 0 && selected[0].parentElement?.hasAttribute(SANITIZER_REMOVAL_KEY) == false) {
-      selected[0].parentElement?.setAttribute(SANITIZER_REMOVAL_KEY, "true");
-          logger.log("자동 구매 권유 배너 1개를 제거하였습니다.");
+    if (selected.length > 0) {
+      if (selected[0].parentElement?.hasAttribute(SANITIZER_REMOVAL_KEY) == false) {
+        selected[0].parentElement?.setAttribute(SANITIZER_REMOVAL_KEY, "true");
+        logger.log("자동 구매 권유 배너 1개를 제거하였습니다.");
+        console.log("Removed");
+      }
+      return true;
+    } else if (attachObserver) {
+      let interval = 0;
+      const timeout = setInterval(() => {
+        interval++;
+        if (interval > 50 || hrefMonitor(location, false)) {
+          clearInterval(timeout);
+        }
+      }, 3);
     }
   }
+  return false;
 }
 
 // =================================================
@@ -82,11 +95,13 @@ BrowserInitUtil.init(() => {
   settings.load();
   addMenu();
   BrowserInitUtil.callGMAddStyle(SCRIPT_STYLE);
-  hrefMonitor();
+  hrefMonitor(location, true);
   BrowserInitUtil.onPagePrepare(() => {
     ObserveUtil.attachObserver(document.body, monitor);
-    ObserveUtil.attachHrefObserver(document.body, hrefMonitor);
+    ObserveUtil.attachHrefObserver((url) => {
+      hrefMonitor(new URL(url), true);
+    });
     monitor();
-    hrefMonitor();
+    hrefMonitor(location, true);
   });
 });
