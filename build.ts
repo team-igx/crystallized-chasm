@@ -50,6 +50,7 @@ async function buildScript(entryPath: string, scriptId: string, module: { script
             dexie: cdn.jsdelivr("Dexie", "dist/dexie.min.js"),
             "lz-string": cdn.jsdelivr("LZString", "libs/lz-string.min.js"),
             "onnxruntime-web": cdn.jsdelivr("ort", "dist/ort.min.js"),
+            "streamsaver": cdn.jsdelivr("streamSaver", "StreamSaver.min.js")
           },
         },
       }),
