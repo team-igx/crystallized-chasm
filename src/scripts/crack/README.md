@@ -67,7 +67,7 @@ Chasm Snack을 기반으로 수정되었으며, 원본 캐즘 버전은 [6월 11
 
 결정화 캐즘 꿈일기는 유저노트에 목록을 만들어줍니다. <br>
 
-## 결정화 캐즘 - 손소독제 (v2.0.0) [ [설치](https://github.com/team-igx/crystallized-chasm/dist/crack/sanitizer.user.js) ]<br>
+## 결정화 캐즘 - 손소독제 (v2.1.0p) [ [설치](https://github.com/team-igx/crystallized-chasm/dist/crack/sanitizer.user.js) ]<br>
 
 결정화 캐즘 손소독제는 모바일에서 앱 유도 배너 및 최상단 배너를 자동으로 닫아줍니다.<br>
 
