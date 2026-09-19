@@ -117,6 +117,7 @@ export class CrackEnding {
       epilogueExample: this.epilogueExample ?? undefined,
       hint: this.hint ?? undefined,
       rarity: this.rarity,
+      rarityImageUrl: this.rarityImageUrl,
     };
   }
 
