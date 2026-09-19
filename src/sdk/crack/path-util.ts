@@ -1,5 +1,13 @@
-import { Nullable } from "../../utils/generic-types";
+import { Nullable, Undeclarable } from "../../utils/generic-types";
 
+export enum CrackerTabType {
+  /** 결제 페이지 */
+  PURCHASE,
+  /** 자동 결제 페이지 */
+  AUTO_PURCHASE,
+  /** 출석 체크 페이지 */
+  ATTEND,
+}
 /**
  * 현재 URL이 크랙 대시보드 URL인지 반환합니다.
  * @returns 대시보드 여부
@@ -29,7 +37,6 @@ function isCharacterPath(): boolean {
   return /\/characters\/[a-f0-9]+\/chats\/[a-f0-9]+/.test(location.pathname);
 }
 
-
 /**
  * 현재 URL이 스토리챗 빌더의 URL인지 반환합니다.
  * @returns 채팅 URL 일치 여부
@@ -50,8 +57,31 @@ function isARPGPath(): boolean {
  * 현재 URL이 ARPG 채팅 빌더의 일부인지 반환합니다.
  * @returns 채팅 URL 일치 여부
  */
-function isARPGBuilderPath() : boolean {
+function isARPGBuilderPath(): boolean {
   return /\/arpg\/[a-f0-9]+\/builder/.test(location.pathname);
+}
+
+/**
+ * 현재 URL이 크래커 결제 페이지인지 확인합니다.
+ * @param type 크래커 페이지 내 탭 타입, 혹은 undefined. undefined는 와일드 카드로 처리됩니다.
+ * @returns 페이지 및 옵션 일치 여부
+ */
+function isCrackerPath(type: Undeclarable<CrackerTabType> = undefined): boolean {
+  if (location.pathname != "/cracker") return false;
+  if (type != undefined) {
+    switch (type) {
+      case CrackerTabType.PURCHASE: {
+        return new URLSearchParams(location.search).get("tab") == "purchase";
+      }
+      case CrackerTabType.ATTEND: {
+        return new URLSearchParams(location.search).get("tab") == "free";
+      }
+      case CrackerTabType.AUTO_PURCHASE: {
+        return new URLSearchParams(location.search).get("tab") == "auto-purchase";
+      }
+    }
+  }
+  return true;
 }
 
 /**
@@ -96,6 +126,7 @@ export const CrackPathApi = {
   isChattingPath,
   isARPGPath,
   isARPGBuilderPath,
+  isCrackerPath,
   character,
   chatRoom,
 } as const;
