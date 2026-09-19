@@ -16,7 +16,7 @@ import { ObserveUtil } from "../../utils/observe-util";
 
 export const scriptMeta = ScriptMetaUtil.construct("crack", "eraser.user.js", undefined, (meta) => {
   meta.name = "Chasm Crystallized Eraser (결정화 캐즘 지우개)";
-  meta.version = "CRCK-ERSR-v1.0.0p" satisfies CRACK_VERSION_RULE;
+  meta.version = "CRCK-ERSR-v1.0.2p" satisfies CRACK_VERSION_RULE;
   meta.author = "milkyway0308";
   meta.description = "필요 없는 메인 추천 배너 선택 삭제. 이 기능은 결정화 캐즘 오리지널 패치입니다.";
   meta.match = ["https://crack.wrtn.ai/*"];
@@ -135,9 +135,11 @@ function tick(url: URL | Location) {
       }
     }
     if (nodes.length > 0) {
-      if (nonProceedCard > 0) {
+      if (nonProceedCard > 0 || !settings.config.removeMainCarousel) {
         document.getElementById("chasm-eraser-empty")?.remove();
-      } else if (settings.config.removeMainCarousel && !document.getElementById("chasm-eraser-empty")) {
+      } 
+      
+      if (nonProceedCard == 0 && settings.config.removeMainCarousel && !document.getElementById("chasm-eraser-empty")) {
         nodes[0].parentElement?.append(constructEmptyPage());
       }
     }
