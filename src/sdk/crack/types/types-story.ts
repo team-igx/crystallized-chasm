@@ -1,6 +1,7 @@
 import { MissingComponentError } from "../../../utils/error-utils";
 import { Consumer, Legacy, Nullable, Undeclarable } from "../../../utils/generic-types";
 import { UpdatableTimestamp } from "../../core/types/generic-types";
+import { CrackOnlyState } from "./types-crack-only";
 import { CrackOriginalState } from "./types-crack-original";
 import { CrackCreatorInfo } from "./types-creator";
 import { CrackCreatorRecommendedOutput } from "./types-creator-output";
@@ -180,6 +181,9 @@ export class ReadonlyDetailedStoryInfo {
     /** 크랙 오리지널 정보 */
     public readonly original: Nullable<CrackOriginalState>,
 
+    /** 크랙온리 정보 */
+    public readonly only: Nullable<CrackOnlyState>,
+
     /** 댓글 차단 여부 */
     public readonly isCommentBlocked: boolean,
 
@@ -274,6 +278,7 @@ export class ReadonlyDetailedStoryInfo {
       MissingComponentError.ensureArray<string>("Crack Story Deserialization", "chatExamples", data),
       MissingComponentError.ensureArray<any>("Crack Story Deserialization", "startingSets", data).map((it) => CrackStartingSet.from(it)),
       CrackOriginalState.from(data["original"]),
+      CrackOnlyState.from(data["onlyContent"]),
       MissingComponentError.ensureBool("Crack Story Deserialization", "isCommentBlocked", data),
       MissingComponentError.ensureArray<string>("Crack Story Deserialization", "initialMessages", data),
       MissingComponentError.ensureArray<string>("Crack Story Deserialization", "replySuggestions", data),
