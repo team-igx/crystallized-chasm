@@ -103,6 +103,7 @@ export class CrackEnding {
     public epilogueExample: Nullable<string>,
     public hint: Nullable<string>,
     public rarity: string,
+    public rarityImageUrl: string,
   ) {}
 
   uglify(eraseId: boolean): any {
@@ -130,6 +131,7 @@ export class CrackEnding {
       MissingComponentError.ensureString("Crack Ending Deserialization", "epilogueExample", data, false) ?? null,
       MissingComponentError.ensureString("Crack Ending Deserialization", "hint", data, false) ?? null,
       MissingComponentError.ensureString("Crack Ending Deserialization", "rarity", data),
+      MissingComponentError.ensureString("Crack Ending Deserialization", "rarityImageUrl", data),
     );
   }
 }
