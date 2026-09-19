@@ -1,6 +1,7 @@
 import { MissingComponentError } from "../../../utils/error-utils";
 import { Consumer, Legacy, Nullable, Undeclarable } from "../../../utils/generic-types";
 import { UpdatableTimestamp } from "../../core/types/generic-types";
+import { CrackChatExample } from "./types-crack-chat-example";
 import { CrackOnlyState } from "./types-crack-only";
 import { CrackOriginalState } from "./types-crack-original";
 import { CrackCreatorInfo } from "./types-creator";
@@ -16,7 +17,7 @@ import { CrackStartingSet } from "./types-starting-set";
 
 export class WritableStoryInfo {
   constructor(
-    public chatExamples: string[],
+    public chatExamples: CrackChatExample[],
     public chatModelId: string,
     public chatType: string,
     public mainPrompt: string,
@@ -66,23 +67,24 @@ export class WritableStoryInfo {
 
   stringify(includeId: boolean, storyId?: Nullable<string>, isAdult?: Nullable<boolean>) {
     return JSON.stringify({
+      portraitImageUrl: this.portraitImageUrl,
+      name: this.name,
+      description: this.description,
+      detailDescription: this.detailDescription,
+      simpleDescription: this.simpleDescription,
+      promptTemplate: this.promptTemplate,
+      storyDetails: this.storyDetails,
+
       chatExamples: this.chatExamples,
       chatModelId: this.chatModelId,
       chatType: this.chatType,
       customPrompt: this.mainPrompt,
       defaultCrackerModel: this.crackerModel,
-      description: this.description,
-      detailDescription: this.detailDescription,
       genreId: this.genreId,
       isCommentBlocked: this.isCommentBlocked,
       isMovingPortraitImage: this.isMovingPortraitImage,
       model: this.model,
-      name: this.name,
-      portraitImageUrl: this.portraitImageUrl,
-      promptTemplate: this.promptTemplate,
-      simpleDescription: this.simpleDescription,
       startingSets: this.sets.map((it) => it.uglify(includeId)),
-      storyDetails: this.storyDetails,
       tags: this.tags,
       target: this.target,
       visibility: this.visibility.originName,
@@ -173,8 +175,8 @@ export class ReadonlyDetailedStoryInfo {
     public readonly storyDetails: Undeclarable<string>,
     /** 프롬프트 상세 정보 */
     public readonly customPrompt: string,
-    /** 채팅 예제? */
-    public readonly chatExamples: string[],
+    /** 채팅 예제 */
+    public readonly chatExamples: CrackChatExample[],
     /** 시작 설정 목록 */
     public readonly startingSets: CrackStartingSet[],
 
@@ -212,6 +214,10 @@ export class ReadonlyDetailedStoryInfo {
     public readonly imageVersion: string,
     public readonly imageMatrix: Undeclarable<CrackImageMatrix>,
     public readonly recommendOutput: Undeclarable<CrackCreatorRecommendedOutput>,
+    
+    public readonly isMovingImage: boolean,
+    public readonly isMovingPortraitImage: boolean,
+    
   ) {}
 
   asWritable(): WritableStoryInfo {
@@ -275,7 +281,7 @@ export class ReadonlyDetailedStoryInfo {
       MissingComponentError.ensureString("Crack Story Deserialization", "chatType", data),
       MissingComponentError.ensureString("Crack Story Deserialization", "storyDetails", data, false),
       MissingComponentError.ensureString("Crack Story Deserialization", "customPrompt", data, false) ?? "",
-      MissingComponentError.ensureArray<string>("Crack Story Deserialization", "chatExamples", data),
+      MissingComponentError.ensureArray<any>("Crack Story Deserialization", "chatExamples", data).map(it => CrackChatExample.from(it)),
       MissingComponentError.ensureArray<any>("Crack Story Deserialization", "startingSets", data).map((it) => CrackStartingSet.from(it)),
       CrackOriginalState.from(data["original"]),
       CrackOnlyState.from(data["onlyContent"]),
@@ -293,6 +299,8 @@ export class ReadonlyDetailedStoryInfo {
       MissingComponentError.ensureString("Crack Story Deserialization", "situationImageVersion", data),
       CrackImageMatrix.from(data.imageMatrix),
       CrackCreatorRecommendedOutput.from(data.creatorRecommendedMaxOutput),
+      MissingComponentError.ensureBool("Crack Story Deserialization", "isMovingImage", data),
+      MissingComponentError.ensureBool("Crack Story Deserialization", "isMovingPortraitImage", data),
     );
   }
 }
