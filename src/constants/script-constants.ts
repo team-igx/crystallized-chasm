@@ -14,10 +14,11 @@ export const BABECHAT_URL_WILDCARDS = ["https://babechat.ai/*", "https://www.bab
 
 // VERSIONING CONSTANTS
 export type VERSION_RULE = `v${number}.${number}.${number}`
+export type PREVIEW_VERSION_RULE = `v${number}.${number}.${number}p`
 
-export type BASIC_VERSION_RULE = `${string}-${string}-${VERSION_RULE}`
-export type CRACK_VERSION_RULE = `CRCK-${string}-${VERSION_RULE}`;
-export type BABECHAT_VERSION_RULE = `BABE-${string}-${VERSION_RULE}`;
+export type BASIC_VERSION_RULE = `${string}-${string}-${VERSION_RULE | PREVIEW_VERSION_RULE}`
+export type CRACK_VERSION_RULE = `CRCK-${string}-${VERSION_RULE | PREVIEW_VERSION_RULE}`;
+export type BABECHAT_VERSION_RULE = `BABE-${string}-${VERSION_RULE | PREVIEW_VERSION_RULE}`;
 
 
 // PLATFORM CONSTANTS
