@@ -13,6 +13,7 @@ import SCRIPT_STYLE from "./css/eraser.scss?inline";
 import { readonlyLazy } from "../../utils/lazy-util";
 import { LocaleStorageConfig } from "../../utils/local-storage-config";
 import { ObserveUtil } from "../../utils/observe-util";
+
 export const scriptMeta = ScriptMetaUtil.construct("crack", "eraser.user.js", undefined, (meta) => {
   meta.name = "Chasm Crystallized Eraser (결정화 캐즘 지우개)";
   meta.version = "CRCK-ERSR-v1.0.0p" satisfies CRACK_VERSION_RULE;
@@ -88,7 +89,7 @@ function fetchRemovableNode(node: HTMLElement): Nullable<RemovableNode> {
   const paragraphNode = node.querySelector<HTMLElement>(`
   :scope > :first-child > p:first-child,
   :scope > :first-child > :first-child > p:first-child,
-  :scope > :first-child > :first-child > :first-child > p:first-child:not([chasm-eraser-proceed])
+  :scope > :first-child > :first-child > :first-child > p:first-child
   `);
   if (paragraphNode) {
     return { key: paragraphNode.textContent, root: node, paragraph: paragraphNode as HTMLParagraphElement };
@@ -134,7 +135,7 @@ function tick(url: URL | Location) {
       }
     }
     if (nodes.length > 0) {
-      if (nonProceedCard > 0 || !settings.config.removeMainCarousel) {
+      if (nonProceedCard > 0) {
         document.getElementById("chasm-eraser-empty")?.remove();
       } else if (settings.config.removeMainCarousel && !document.getElementById("chasm-eraser-empty")) {
         nodes[0].parentElement?.append(constructEmptyPage());
