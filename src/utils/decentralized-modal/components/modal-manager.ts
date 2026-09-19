@@ -137,8 +137,8 @@ export class ModalManager {
    * @param menuAction 메뉴 클릭시, 수행할 작업
    * @returns 생성된 메뉴 인스턴스
    */
-  async createMenu(menuName: string, menuAction: AsyncConsumer<ModalContainer>): Promise<ModalMenu> {
-    return await this.modal.createMenu(menuName, menuAction);
+  createMenu(menuName: string, menuAction: AsyncConsumer<ModalContainer>): ModalMenu {
+    return this.modal.createMenu(menuName, menuAction);
   }
 
   /**

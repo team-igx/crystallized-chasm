@@ -353,11 +353,7 @@ export class ComponentAppender {
    * @returns 생성된 버튼 요소
    */
   addBoxedButton(id: string, titleText: string, description: string, { onInit, onTrigger }: ComplexedTriggerableComponentOption<HTMLDivElement, HTMLButtonElement> = {}) {
-    const rootNode = this.constructBoxedField(titleText, description, {
-      onInit: (node) => {
-        node.append(buttonNode);
-      },
-    });
+    const rootNode = this.constructBoxedField(titleText, description);
     const buttonNode = NodeUtil.setupNode("button", {
       cls: "decentral-button",
       onInit: (button) => {
@@ -371,7 +367,7 @@ export class ComponentAppender {
         }
       },
     });
-
+    rootNode.append(buttonNode);
     return buttonNode;
   }
 

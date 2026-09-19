@@ -42,7 +42,7 @@ export class ModalContainer {
    * @param menuAction 메뉴 선택시 실행될 람다
    * @returns 생성된 메뉴
    */
-  async createMenu(menuName: string, menuAction: AsyncConsumer<ModalContainer>) {
+  createMenu(menuName: string, menuAction: AsyncConsumer<ModalContainer>) {
     let menuItem = this.#menuItems.get(menuName);
     if (!menuItem) {
       menuItem = new ModalMenu(menuAction);
