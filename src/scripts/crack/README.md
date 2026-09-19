@@ -32,7 +32,7 @@ Chasm Snack을 기반으로 수정되었으며, 원본 캐즘 버전은 [6월 11
 **결정화 캐즘 프로젝트는 스크립트별로 기능이 분리됩니다.**<br>
 **반드시 모든 스크립트를 설치할 필요는 없습니다. 필요한 기능만 골라 설치하세요.**
 
-## 결정화 캐즘 - 네오-카피(v3.1.2) [ [설치](https://github.com/team-igx/crystallized-chasm/dist/crack/neocopy.user.js) ]<br>
+## 결정화 캐즘 - 네오-카피(v3.1.2) [ [설치](https://github.com/team-igx/crystallized-chasm/raw/refs/heads/preview-unexpired-sourdough/dist/crack/neocopy.user.js) ]<br>
 
 결정화 캐즘 네오-카피는 크랙 캐릭터 제작자를 위한 보조 도구입니다.<br>
 캐릭터의 원본 데이터를 JSON 형태로 추출하거나 개정된 원본 데이터를 붙여넣고,<br>
@@ -41,60 +41,60 @@ Chasm Snack을 기반으로 수정되었으며, 원본 캐즘 버전은 [6월 11
 > 결정화 캐즘 네오-카피는 완전히 재작성되어 독립된 캐즘 카피입니다.
 
 
-## 결정화 캐즘 - 묶음보고서(v1.2.0) [ [설치](https://github.com/team-igx/crystallized-chasm/dist/crack/majority-report.user.js) ]<br>
+## 결정화 캐즘 - 묶음보고서(v1.2.0) [ [설치](https://github.com/team-igx/crystallized-chasm/raw/refs/heads/preview-unexpired-sourdough/dist/crack/majority-report.user.js) ]<br>
 
 결정화 캐즘 묶음보고서는 크랙 v2 이미지 업로드 패널을 쓰기 편하게 만들어줍니다.
 
 추가로, Kaunsera@Home 모델을 채택하여 이미지 감정 분석을 포함합니다.
 
-## 결정화 캐즘 - 계수기 (v2.0.0) [ [설치](https://github.com/team-igx/crystallized-chasm/dist/crack/counter.user.js) ]<br>
+## 결정화 캐즘 - 계수기 (v2.0.0) [ [설치](https://github.com/team-igx/crystallized-chasm/raw/refs/heads/preview-unexpired-sourdough/dist/crack/counter.user.js) ]<br>
 
 결정화 캐즘 계수기는 채팅 입력 칸 위에 현재 채팅이 진행된 턴 수를 표시해줍니다.<br>
 
-## 결정화 캐즘 - 절대 영도 (v2.0.0) [ [설치](https://github.com/team-igx/crystallized-chasm/dist/crack/absolutezero.user.js) ]<br>
+## 결정화 캐즘 - 절대 영도 (v2.0.0) [ [설치](https://github.com/team-igx/crystallized-chasm/raw/refs/heads/preview-unexpired-sourdough/dist/crack/absolutezero.user.js) ]<br>
 
 결정화 캐즘 절대영도는 랭킹 화면에서의 GIF / WEBP 재생을 중지하고, 호버하는 대상에만 적용시킵니다.<br>
 
-## 결정화 캐즘 - 국소지진계 (v2.0.1) [ [설치](https://github.com/team-igx/crystallized-chasm/dist/crack/local-seismometer.user.js) ]<br>
+## 결정화 캐즘 - 국소지진계 (v2.0.1) [ [설치](https://github.com/team-igx/crystallized-chasm/raw/refs/heads/preview-unexpired-sourdough/dist/crack/local-seismometer.user.js) ]<br>
 
 결정화 캐즘 국소지진계는 요약 메모리의 변경을 감지하고 알립니다. <br>
 
-## 결정화 캐즘 - 자명종 (v2.0.0) [ [설치](https://github.com/team-igx/crystallized-chasm/dist/crack/alarm-clock.user.js) ]<br>
+## 결정화 캐즘 - 자명종 (v2.0.0) [ [설치](https://github.com/team-igx/crystallized-chasm/raw/refs/heads/preview-unexpired-sourdough/dist/crack/alarm-clock.user.js) ]<br>
 
 더 이상의 출석 이벤트 놓침은 그만, 자명종 모듈과 함께 개근상을 노려보세요. <br>
 
-## 결정화 캐즘 - 꿈일기 (v2.0.0) [ [설치](https://github.com/team-igx/crystallized-chasm/dist/crack/dreamdiary.user.js) ]<br>
+## 결정화 캐즘 - 꿈일기 (v2.0.0) [ [설치](https://github.com/team-igx/crystallized-chasm/raw/refs/heads/preview-unexpired-sourdough/dist/crack/dreamdiary.user.js) ]<br>
 
 결정화 캐즘 꿈일기는 유저노트에 목록을 만들어줍니다. <br>
 
-## 결정화 캐즘 - 손소독제 (v2.1.0p) [ [설치](https://github.com/team-igx/crystallized-chasm/dist/crack/sanitizer.user.js) ]<br>
+## 결정화 캐즘 - 손소독제 (v2.1.0p) [ [설치](https://github.com/team-igx/crystallized-chasm/raw/refs/heads/preview-unexpired-sourdough/dist/crack/sanitizer.user.js) ]<br>
 
 결정화 캐즘 손소독제는 모바일에서 앱 유도 배너 및 최상단 배너를 자동으로 닫아줍니다.<br>
 
 덤으로 손도 더 깔끔해집니다. 과학이죠!
 
-## 결정화 캐즘 - 아코디언 (v2.0.0) [ [설치](https://github.com/team-igx/crystallized-chasm/dist/crack/accordion.user.js) ]<br>
+## 결정화 캐즘 - 아코디언 (v2.0.0) [ [설치](https://github.com/team-igx/crystallized-chasm/raw/refs/heads/preview-unexpired-sourdough/dist/crack/accordion.user.js) ]<br>
 
 결정화 캐즘 아코디언은 스토리 및 캐릭터 에디터의 모든 텍스트에이리어 요소에 크기 조절 기능을 추가합니다.<br>
 창 늘리는 재미도 약간 추가됩니다.
 
-## 결정화 캐즘 - 동결 건조 (v2.0.0) [ [설치](https://github.com/team-igx/crystallized-chasm/dist/crack/lyophilization.user.js) ]<br>
+## 결정화 캐즘 - 동결 건조 (v2.0.0) [ [설치](https://github.com/team-igx/crystallized-chasm/raw/refs/heads/preview-unexpired-sourdough/dist/crack/lyophilization.user.js) ]<br>
 
 결정화 캐즘 동결 건조는 채팅방 히스토리 추출 기능을 제공합니다. <br>
 
 
-## 결정화 캐즘 - 복사기 (v2.0.0) [ [설치](https://github.com/team-igx/crystallized-chasm/dist/crack/copycat.user.js) ]<br>
+## 결정화 캐즘 - 복사기 (v2.0.0) [ [설치](https://github.com/team-igx/crystallized-chasm/raw/refs/heads/preview-unexpired-sourdough/dist/crack/copycat.user.js) ]<br>
 
 결정화 캐즘 복사기는 메시지 및 프롬프트 창을 길게 누르면 메시지를 복사하는 기능을 추가합니다. <br>
 
 앱에서의 입력 UX 경험을 PC로 일부 가져오거나, 웹에서 앱의 입력 조작감을 사용하고 싶으신 경우에 좋습니다.<br>
 
-## 결정화 캐즘 - 감시견 (v2.0.0) [ [설치](https://github.com/team-igx/crystallized-chasm/dist/crack/watchdog.user.js) ]<br>
+## 결정화 캐즘 - 감시견 (v2.0.0) [ [설치](https://github.com/team-igx/crystallized-chasm/raw/refs/heads/preview-unexpired-sourdough/dist/crack/watchdog.user.js) ]<br>
 
 결정화 캐즘 감시견은 크랙의 알림을 웹 환경에서 감시하고, 표시해줍니다. <br>
 PC 환경에서만 검증되었습니다. 설정에서 OS 푸시를 활성화해야 정상 작동합니다. <br>
 
-## 결정화 캐즘 - 수신거부 (v1.0.0) [ [설치](https://github.com/team-igx/crystallized-chasm/dist/crack/optout.user.js) ]<br>
+## 결정화 캐즘 - 수신거부 (v1.0.0) [ [설치](https://github.com/team-igx/crystallized-chasm/raw/refs/heads/preview-unexpired-sourdough/dist/crack/optout.user.js) ]<br>
 
 결정화 캐즘 수신거부는 작품 이미지 버전 업데이트 모달을 제거해줍니다.
 
