@@ -102,7 +102,7 @@ PC 환경에서만 검증되었습니다. 설정에서 OS 푸시를 활성화해
 
 결정화 캐즘 수신거부는 작품 이미지 버전 업데이트 모달을 제거해줍니다.
 
-## 결정화 캐즘 - 지우개 (v1.0.0p) [ [설치](https://github.com/team-igx/crystallized-chasm/raw/refs/heads/preview-unexpired-sourdough/dist/crack/eraser.user.js) ]<br>
+## 결정화 캐즘 - 지우개 (v1.0.2p) [ [설치](https://github.com/team-igx/crystallized-chasm/raw/refs/heads/preview-unexpired-sourdough/dist/crack/eraser.user.js) ]<br>
 
 결정화 캐즘 지우개는 크랙 메인 추천 탭을 조정할 수 있도록 기능을 추가해줍니다.
 
