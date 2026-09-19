@@ -94,6 +94,10 @@ Chasm Snack을 기반으로 수정되었으며, 원본 캐즘 버전은 [6월 11
 결정화 캐즘 감시견은 크랙의 알림을 웹 환경에서 감시하고, 표시해줍니다. <br>
 PC 환경에서만 검증되었습니다. 설정에서 OS 푸시를 활성화해야 정상 작동합니다. <br>
 
+## 결정화 캐즘 - 수신거부 (v1.0.0) [ [설치](https://github.com/team-igx/crystallized-chasm/raw/refs/heads/preview-unexpired-sourdough/dist/crack/squarify.user.js) ]<br>
+
+결정화 캐즘 제곱근은 세션 목록 이미지만 사각형으로 바꿔줍니다. 멈뭄미.
+
 ## 결정화 캐즘 - 수신거부 (v1.0.0) [ [설치](https://github.com/team-igx/crystallized-chasm/raw/refs/heads/preview-unexpired-sourdough/dist/crack/optout.user.js) ]<br>
 
 결정화 캐즘 수신거부는 작품 이미지 버전 업데이트 모달을 제거해줍니다.
