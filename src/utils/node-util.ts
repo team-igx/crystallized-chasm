@@ -186,6 +186,14 @@ export class NodeUtil {
     return element.childNodes as Iterable<HTMLElement>;
   }
 
+  static ofParent(element: HTMLElement, requireDepth: number): Nullable<HTMLElement> {
+    let nodeCurrent: Nullable<HTMLElement> = element;
+    for (let index = 0; index < requireDepth; index++) {
+      if (!(nodeCurrent = nodeCurrent?.parentElement ?? null)) return null;
+    }
+    return nodeCurrent;
+  }
+
   static attrEq(ignoreNull: boolean = true, name: string, first: HTMLElement, second: HTMLElement): boolean {
     if (ignoreNull && (!first.hasAttribute(name) || !second.hasAttribute(name))) return false;
     return first.getAttribute(name) === second.getAttribute(name);
