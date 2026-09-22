@@ -1,6 +1,7 @@
-import { fail, FutureResult, success } from "../../utils/flow-handler";
+import { fail, FutureResult, handleFlow, success } from "../../utils/flow-handler";
 import { Nullable } from "../../utils/generic-types";
 import { CrackNetworkApi } from "./network-util";
+import { CrackModelInfo } from "./types/types-model-info";
 import { ReadonlyDetailedStoryInfo, WritableStoryInfo } from "./types/types-story";
 async function getDetail(id: string): FutureResult<ReadonlyDetailedStoryInfo>;
 async function getDetail(id: string, raw: true): FutureResult<any>;
@@ -63,9 +64,20 @@ async function create(data: WritableStoryInfo, includeSetId: boolean, isAdult?: 
   return success(true);
 }
 
+/**
+ * 스토리에서 사용 가능한 모델 데이터를 가져옵니다.
+ * @returns 모델 정보, 혹은 오류
+ */
+async function getModels(): FutureResult<CrackModelInfo> {
+  const request = await CrackNetworkApi.authFetch("GET", "https://crack-api.wrtn.ai/crack-gen/v3/chat-models?serviceType=story");
+  if (!request.ok) request;
+  return handleFlow(() => CrackModelInfo.from(request));
+}
+
 export const CrackStoryApi = {
   getDetail,
   edit,
   create,
   pullNewId,
+  getModels,
 } as const;
