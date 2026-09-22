@@ -70,8 +70,8 @@ async function create(data: WritableStoryInfo, includeSetId: boolean, isAdult?: 
  */
 async function getModels(): FutureResult<CrackModelInfo> {
   const request = await CrackNetworkApi.authFetch("GET", "https://crack-api.wrtn.ai/crack-gen/v3/chat-models?serviceType=story");
-  if (!request.ok) request;
-  return handleFlow(() => CrackModelInfo.from(request));
+  if (!request.ok) return request;
+  return handleFlow(() => CrackModelInfo.from(request.value.data.models));
 }
 
 export const CrackStoryApi = {
