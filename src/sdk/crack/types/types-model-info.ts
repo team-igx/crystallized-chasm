@@ -1,4 +1,6 @@
 import { MissingComponentError } from "../../../utils/error-utils";
+import { Nullable, Undeclarable } from "../../../utils/generic-types";
+import { CrackCrackerEvent } from "./types-crack-cracker-event";
 import { CrackMaxModelOutput } from "./types-crack-max-model-output";
 import { CrackStyleProperties } from "./types-crack-style-properties";
 import { CrackImageMappable } from "./types-generic";
@@ -14,6 +16,7 @@ export class CrackModelInfo {
     public readonly isBlocked: boolean,
     public readonly isDefault: boolean,
     public readonly serviceType: string,
+    public readonly events: Nullable<CrackCrackerEvent>,
     public readonly assets: CrackImageMappable,
     public readonly styleProperties: CrackStyleProperties,
     public readonly replacementChatModelId: string,
@@ -35,6 +38,7 @@ export class CrackModelInfo {
       MissingComponentError.ensureBool("Crack Model Type Deserialization", "isBlock", data),
       MissingComponentError.ensureBool("Crack Model Type Deserialization", "isDefault", data),
       MissingComponentError.ensureString("Crack Model Type Deserialization", "serviceType", data),
+      data.crackerEvent ? CrackCrackerEvent.from(data.crackerEvent) : null,
       new CrackImageMappable(data.assets),
       CrackStyleProperties.from(data.styleProperties),
       MissingComponentError.ensureString("Crack Model Type Deserialization", "replacementChatModelId", data),
